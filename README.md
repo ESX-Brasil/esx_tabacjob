@@ -29,6 +29,11 @@ start esx_tabacjob
 
 5) If you want player management you have to set Config.EnablePlayerManagement on true in config.lua
 
+# Discord
+
+[![Join ESX Brasil](https://discordapp.com/api/guilds/432980396070666250/embed.png?style=banner2)](https://discord.gg/8zGbh3T)
+
+
 # Legal
 ### License
 
