@@ -27,7 +27,7 @@ Locales['fr'] = {
 	['sale_in_prog'] = 'Revente en cours...',
 	['van'] = 'Camion de travail',
 	['open_menu'] = ' ',
-  
+
 	-- A modifier selon l'entreprise
 	['tabac_client'] = 'client vigne',
 	['transforming_in_progress'] = 'Transformation du raisin en cours',
@@ -43,5 +43,18 @@ Locales['fr'] = {
 	['press_traitement_jus'] = 'appuyez sur ~INPUT_CONTEXT~ pour transformer votre raisin',
 	['used_jus'] = 'Vous avez bu du jus de raisin',
 	['used_tabacsec'] = 'Vous avez bu une bouteille de grand cru',
+
+	--
+	['veh_rumpoo'] = 'Véhicule de Travail',
+	['tabac_stock'] = 'tabac Stock',
+	['entreprise_tabac'] = 'Entreprise Tabac Pierrot',
+	['texto_tabac'] = 'tabac',
+	['recolte_feuilles_tabac'] = 'Récolte de Feuilles',
+	['traitement_tabac_tabac'] = 'Traitement du Tabac',
+	['vente_produits_tabac'] = 'Vente des produits',
+	['point_action_tabac'] = 'Point daction',
+	['garage_veh_tabac'] = 'Garage véhicule',
+	['spawn_point_tabac'] = 'Spawn point',
+	['ranger_veh_tabac'] = 'Ranger son véhicule',
 
 }

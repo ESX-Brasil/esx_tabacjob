@@ -11,11 +11,11 @@ local jus = 1
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
 if Config.MaxInService ~= -1 then
-	TriggerEvent('esx_service:activateService', 'tabac', Config.MaxInService)
+	TriggerEvent('esx_service:activateService', _U('texto_tabac'), Config.MaxInService)
 end
 
-TriggerEvent('esx_phone:registerNumber', 'tabac', _U('tabac_client'), true, true)
-TriggerEvent('esx_society:registerSociety', 'tabac', 'tabac', 'society_tabac', 'society_tabac', 'society_tabac', {type = 'private'})
+TriggerEvent('esx_phone:registerNumber', _U('texto_tabac'), _U('tabac_client'), true, true)
+TriggerEvent('esx_society:registerSociety', _U('texto_tabac'), _U('texto_tabac'), 'society_tabac', 'society_tabac', 'society_tabac', {type = 'private'})
 local function Harvest(source, zone)
 	if PlayersHarvesting[source] == true then
 
@@ -38,13 +38,13 @@ end
 RegisterServerEvent('esx_tabacjob:startHarvest')
 AddEventHandler('esx_tabacjob:startHarvest', function(zone)
 	local _source = source
-  	
+
 	if PlayersHarvesting[_source] == false then
 		TriggerClientEvent('esx:showNotification', _source, '~r~C\'est pas bien de glitch ~w~')
 		PlayersHarvesting[_source]=false
 	else
 		PlayersHarvesting[_source]=true
-		TriggerClientEvent('esx:showNotification', _source, _U('feuilletab_taken'))  
+		TriggerClientEvent('esx:showNotification', _source, _U('feuilletab_taken'))
 		Harvest(_source,zone)
 	end
 end)
@@ -53,7 +53,7 @@ end)
 RegisterServerEvent('esx_tabacjob:stopHarvest')
 AddEventHandler('esx_tabacjob:stopHarvest', function()
 	local _source = source
-	
+
 	if PlayersHarvesting[_source] == true then
 		PlayersHarvesting[_source]=false
 		TriggerClientEvent('esx:showNotification', _source, 'Vous sortez de la ~r~zone')
@@ -71,7 +71,7 @@ local function Transform(source, zone)
 		local xPlayer  = ESX.GetPlayerFromId(source)
 		if zone == "TraitementVin" then
 			local itemQuantity = xPlayer.getInventoryItem('feuilletab').count
-			
+
 			if itemQuantity <= 0 then
 				TriggerClientEvent('esx:showNotification', source, _U('not_enough_feuilletab'))
 				return
@@ -88,7 +88,7 @@ local function Transform(source, zone)
 					SetTimeout(1800, function()
 						xPlayer.removeInventoryItem('feuilletab', 1)
 						xPlayer.addInventoryItem('tabacsec', 1)
-				
+
 						Transform(source, zone)
 					end)
 				end
@@ -102,24 +102,24 @@ local function Transform(source, zone)
 				SetTimeout(1800, function()
 					xPlayer.removeInventoryItem('feuilletab', 1)
 					xPlayer.addInventoryItem('tabacsec', 1)
-		  
-					Transform(source, zone)	  
+
+					Transform(source, zone)
 				end)
 			end
 		end
-	end	
+	end
 end
 
 RegisterServerEvent('esx_tabacjob:startTransform')
 AddEventHandler('esx_tabacjob:startTransform', function(zone)
 	local _source = source
-  	
+
 	if PlayersTransforming[_source] == false then
 		TriggerClientEvent('esx:showNotification', _source, '~r~C\'est pas bien de glitch ~w~')
 		PlayersTransforming[_source]=false
 	else
 		PlayersTransforming[_source]=true
-		TriggerClientEvent('esx:showNotification', _source, _U('transforming_in_progress')) 
+		TriggerClientEvent('esx:showNotification', _source, _U('transforming_in_progress'))
 		Transform(_source,zone)
 	end
 end)
@@ -128,15 +128,15 @@ RegisterServerEvent('esx_tabacjob:stopTransform')
 AddEventHandler('esx_tabacjob:stopTransform', function()
 
 	local _source = source
-	
+
 	if PlayersTransforming[_source] == true then
 		PlayersTransforming[_source]=false
 		TriggerClientEvent('esx:showNotification', _source, 'Vous sortez de la ~r~zone')
-		
+
 	else
 		TriggerClientEvent('esx:showNotification', _source, 'Vous pouvez ~g~transformer votre feuilletab')
 		PlayersTransforming[_source]=true
-		
+
 	end
 end)
 
@@ -144,20 +144,20 @@ local function Sell(source, zone)
 
 	if PlayersSelling[source] == true then
 		local xPlayer  = ESX.GetPlayerFromId(source)
-		
+
 		if zone == 'SellFarm' then
 			if xPlayer.getInventoryItem('tabacsec').count <= 0 then
 				vine = 0
 			else
 				vine = 1
 			end
-			
+
 			if xPlayer.getInventoryItem('tabacsec').count <= 0 then
 				jus = 0
 			else
 				jus = 1
 			end
-		
+
 			if vine == 0 and jus == 0 then
 				TriggerClientEvent('esx:showNotification', source, _U('no_product_sale'))
 				return
@@ -201,7 +201,7 @@ local function Sell(source, zone)
 						Sell(source,zone)
 					end)
 				end
-				
+
 			end
 		end
 	end
@@ -211,7 +211,7 @@ RegisterServerEvent('esx_tabacjob:startSell')
 AddEventHandler('esx_tabacjob:startSell', function(zone)
 
 	local _source = source
-	
+
 	if PlayersSelling[_source] == false then
 		TriggerClientEvent('esx:showNotification', _source, '~r~C\'est pas bien de glitch ~w~')
 		PlayersSelling[_source]=false
@@ -227,11 +227,11 @@ RegisterServerEvent('esx_tabacjob:stopSell')
 AddEventHandler('esx_tabacjob:stopSell', function()
 
 	local _source = source
-	
+
 	if PlayersSelling[_source] == true then
 		PlayersSelling[_source]=false
 		TriggerClientEvent('esx:showNotification', _source, 'Vous sortez de la ~r~zone')
-		
+
 	else
 		TriggerClientEvent('esx:showNotification', _source, 'Vous pouvez ~g~vendre')
 		PlayersSelling[_source]=true
