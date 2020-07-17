@@ -1,7 +1,17 @@
------------------------------------------
--- Created and modify by RenildoMarcio
------------------------------------------
-
+-- Copyright (c) ESX Brasil
+--
+-- All rights reserved.
+--
+-- Even if 'All rights reserved' is very clear :
+--
+--   You shall not use any piece of this software in a commercial product / service
+--   You shall not resell this software
+--   You shall not provide any facility to install this particular software in a commercial product / service
+--   If you redistribute this software, you must link to ORIGINAL repository at https://github.com/ESX-Brasil
+--   This copyright should appear in every part of the project code
+--
+--  Website: www.esxbrasil.Website
+--  Forum: forum.esxbrasil.website
 
 local Keys = {
 	["ESC"] = 322, ["F1"] = 288, ["F2"] = 289, ["F3"] = 170, ["F5"] = 166, ["F6"] = 167, ["F7"] = 168, ["F8"] = 169, ["F9"] = 56, ["F10"] = 57,

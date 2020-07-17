@@ -1,6 +1,17 @@
------------------------------------------
--- Created and modify by RenildoMarcio
------------------------------------------
+-- Copyright (c) ESX Brasil
+--
+-- All rights reserved.
+--
+-- Even if 'All rights reserved' is very clear :
+--
+--   You shall not use any piece of this software in a commercial product / service
+--   You shall not resell this software
+--   You shall not provide any facility to install this particular software in a commercial product / service
+--   If you redistribute this software, you must link to ORIGINAL repository at https://github.com/ESX-Brasil
+--   This copyright should appear in every part of the project code
+--
+--  Website: www.esxbrasil.Website
+--  Forum: forum.esxbrasil.website
 
 ESX = nil
 local PlayersTransforming  = {}
@@ -40,7 +51,7 @@ AddEventHandler('esx_tabacjob:startHarvest', function(zone)
 	local _source = source
 
 	if PlayersHarvesting[_source] == false then
-		TriggerClientEvent('esx:showNotification', _source, '~r~C\'est pas bien de glitch ~w~')
+		TriggerClientEvent('esx:showNotification', _source, '~r~Não é uma falha boa ~w~')
 		PlayersHarvesting[_source]=false
 	else
 		PlayersHarvesting[_source]=true
@@ -56,9 +67,9 @@ AddEventHandler('esx_tabacjob:stopHarvest', function()
 
 	if PlayersHarvesting[_source] == true then
 		PlayersHarvesting[_source]=false
-		TriggerClientEvent('esx:showNotification', _source, 'Vous sortez de la ~r~zone')
+		TriggerClientEvent('esx:showNotification', _source, 'Você saiu da ~r~zona')
 	else
-		TriggerClientEvent('esx:showNotification', _source, 'Vous pouvez ~g~récolter')
+		TriggerClientEvent('esx:showNotification', _source, 'Você pode ~g~colher')
 		PlayersHarvesting[_source]=true
 	end
 end)
@@ -115,7 +126,7 @@ AddEventHandler('esx_tabacjob:startTransform', function(zone)
 	local _source = source
 
 	if PlayersTransforming[_source] == false then
-		TriggerClientEvent('esx:showNotification', _source, '~r~C\'est pas bien de glitch ~w~')
+		TriggerClientEvent('esx:showNotification', _source, '~r~Não é uma falha boa ~w~')
 		PlayersTransforming[_source]=false
 	else
 		PlayersTransforming[_source]=true
@@ -131,10 +142,10 @@ AddEventHandler('esx_tabacjob:stopTransform', function()
 
 	if PlayersTransforming[_source] == true then
 		PlayersTransforming[_source]=false
-		TriggerClientEvent('esx:showNotification', _source, 'Vous sortez de la ~r~zone')
+		TriggerClientEvent('esx:showNotification', _source, 'Você saiu da ~r~zona')
 
 	else
-		TriggerClientEvent('esx:showNotification', _source, 'Vous pouvez ~g~transformer votre feuilletab')
+		TriggerClientEvent('esx:showNotification', _source, 'Você pode ~g~processa sua Folha de tabaco')
 		PlayersTransforming[_source]=true
 
 	end
@@ -213,7 +224,7 @@ AddEventHandler('esx_tabacjob:startSell', function(zone)
 	local _source = source
 
 	if PlayersSelling[_source] == false then
-		TriggerClientEvent('esx:showNotification', _source, '~r~C\'est pas bien de glitch ~w~')
+		TriggerClientEvent('esx:showNotification', _source, '~r~Não é uma falha boa ~w~')
 		PlayersSelling[_source]=false
 	else
 		PlayersSelling[_source]=true
@@ -230,10 +241,10 @@ AddEventHandler('esx_tabacjob:stopSell', function()
 
 	if PlayersSelling[_source] == true then
 		PlayersSelling[_source]=false
-		TriggerClientEvent('esx:showNotification', _source, 'Vous sortez de la ~r~zone')
+		TriggerClientEvent('esx:showNotification', _source, 'Você saiu da ~r~zona')
 
 	else
-		TriggerClientEvent('esx:showNotification', _source, 'Vous pouvez ~g~vendre')
+		TriggerClientEvent('esx:showNotification', _source, 'Você pode ~g~vender')
 		PlayersSelling[_source]=true
 	end
 
