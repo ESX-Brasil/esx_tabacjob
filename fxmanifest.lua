@@ -16,11 +16,12 @@
 fx_version      'adamant'
 game            'gta5'
 description     'ESXBrasil Tabacjob'
-version         '1.1.1'
+version         '1.1.2'
 
 client_scripts {
   '@es_extended/locale.lua',
   'locales/br.lua',
+  'locales/en.lua',
   'config.lua',
   'client/main.lua'
 }
@@ -28,6 +29,7 @@ client_scripts {
 server_scripts {
   '@es_extended/locale.lua',
   'locales/br.lua',
+  'locales/en.lua',
   'config.lua',
   'server/main.lua'
 }
